@@ -8,11 +8,9 @@ public class PlayerController : MonoBehaviour {
 
     [Space]
 
-    public Transform bat;
-
-    [Space]
-
     public PlayerInput playerInput;
+    public PlayerBat playerBat;
+
 
     private const float MOVEMENT_SPEED = 5f;
 
@@ -34,27 +32,26 @@ public class PlayerController : MonoBehaviour {
 
         Vector2 movement = playerInput.GetMovement();
 
-        bool aimPressent;
-        Vector2 aim = playerInput.GetAim(out aimPressent);
+        Vector2? aim = playerInput.GetAim();
         Vector3 movementTranslate = (MOVEMENT_SPEED * Time.deltaTime) * movement;
 
         Vector3 newPos = transform.position + movementTranslate;
         transform.position = newPos;
 
-        if (aimPressent)
+        if (playerInput.GetSwing())
         {
-            float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg;
-            Quaternion batRotation = Quaternion.Euler(0, 0, angle);
-
-            bat.localRotation = batRotation;
+            playerBat.SwingBat();
         }
+
+        playerBat.Tick(aim);
+  
 
         Debug.DrawRay(transform.position, movement, Color.red);
-        if (aimPressent)
+        if (aim.HasValue)
         {
-            Debug.DrawRay(transform.position, aim, Color.green);
+            Debug.DrawRay(transform.position, aim.Value, Color.green);
         }
-
-        
     }
+
+
 }
