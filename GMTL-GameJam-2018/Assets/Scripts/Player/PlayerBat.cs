@@ -32,8 +32,8 @@ public class PlayerBat {
     private Collider2D[] _hitResults;
     private ContactFilter2D _contactFilter;
 
-    private const float ANGLE_LEFT = 150;
-    private const float ANGLE_RIGHT = -150;
+    private const float ANGLE_LEFT = 175;
+    private const float ANGLE_RIGHT = -175;
 
     public void Init(PlayerController playerController)
     {
