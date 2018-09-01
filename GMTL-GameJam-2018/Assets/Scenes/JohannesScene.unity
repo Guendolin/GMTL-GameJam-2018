@@ -303,3 +303,50 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32aca1ab78aac7d41a4a9c67c98f72e8, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &2106012599
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4067060548641386, guid: 59f76d9cb6331f24fb73f43817cc7281, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067060548641386, guid: 59f76d9cb6331f24fb73f43817cc7281, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.123
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067060548641386, guid: 59f76d9cb6331f24fb73f43817cc7281, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067060548641386, guid: 59f76d9cb6331f24fb73f43817cc7281, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067060548641386, guid: 59f76d9cb6331f24fb73f43817cc7281, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067060548641386, guid: 59f76d9cb6331f24fb73f43817cc7281, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067060548641386, guid: 59f76d9cb6331f24fb73f43817cc7281, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067060548641386, guid: 59f76d9cb6331f24fb73f43817cc7281, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 137752684530211682, guid: 59f76d9cb6331f24fb73f43817cc7281,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59f76d9cb6331f24fb73f43817cc7281, type: 2}
+  m_IsPrefabAsset: 0
