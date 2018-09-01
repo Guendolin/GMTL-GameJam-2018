@@ -13,13 +13,7 @@ public static class InputNames
 
 
 [System.Serializable]
-public class PlayerInput {
-    private PlayerController _playerController;
-
-    public void Init(PlayerController playerController)
-    {
-        _playerController = playerController;
-    }
+public class PlayerInput : PlayerSubComponent {
 
     public Vector2 GetMovement()
     {

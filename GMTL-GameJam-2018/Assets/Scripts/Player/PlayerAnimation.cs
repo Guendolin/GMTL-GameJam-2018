@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerAnimation
+public class PlayerAnimation : PlayerSubComponent
 {
     public Animator playerAnimator;
     public Animator batAnimator;
-
-    PlayerController _playerController;
 
     private int _playerRunBool;
 
     private int _batSwingRightTrigger;
     private int _batSwingLeftTrigger;
 
-    public void Init(PlayerController playerController)
+    public override void Init(PlayerController playerController)
     {
+        base.Init(playerController);
+
         _playerController = playerController;
 
         _playerRunBool = Animator.StringToHash("Run");

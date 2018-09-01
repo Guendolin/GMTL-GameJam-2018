@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerBat {
+public class PlayerBat : PlayerSubComponent {
 
     private enum BatPosition { None, Left = -1, Right = 1}
 
@@ -21,8 +21,6 @@ public class PlayerBat {
     [Header("Animation")]
     public AnimationCurve batSwing;
 
-    private PlayerController _playerController;
-
     private BatPosition _currentBatPos = BatPosition.Left;
     private float _swingTime = -1;
     private bool _isSwining = false;
@@ -36,9 +34,9 @@ public class PlayerBat {
     private const float ANGLE_LEFT = 175;
     private const float ANGLE_RIGHT = -175;
 
-    public void Init(PlayerController playerController)
+    public override void Init(PlayerController playerController)
     {
-        _playerController = playerController;
+        base.Init(playerController);
 
         _currentBatAngle = _currentBatPos == BatPosition.Left ? ANGLE_LEFT : ANGLE_RIGHT;
         SetBatGrahpicsRotation(_currentBatAngle);
@@ -95,8 +93,6 @@ public class PlayerBat {
             {
                 //CameraShakerController.CameraShake();
             }
-            Debug.DrawRay(boxPos, batPivot.right, Color.white, 10f);
-
 
             if (_swingTime >= batSwing.Duration())
             {

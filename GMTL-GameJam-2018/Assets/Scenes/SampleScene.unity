@@ -204,23 +204,6 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4909402686709264, guid: 3d06e22f8525f1945bf8700df6f71206, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909402686709264, guid: 3d06e22f8525f1945bf8700df6f71206, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909402686709264, guid: 3d06e22f8525f1945bf8700df6f71206, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 199291565434647584, guid: 3d06e22f8525f1945bf8700df6f71206,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d06e22f8525f1945bf8700df6f71206, type: 2}
   m_IsPrefabAsset: 0
