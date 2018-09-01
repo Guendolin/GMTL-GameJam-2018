@@ -29,7 +29,7 @@ public class PlayerInput {
     public Vector2? GetAim()
     {
         Vector2 mouseScreenPos = Input.mousePosition;
-        Vector2 playerScreenPos = _playerController.mainCamera.WorldToScreenPoint(_playerController.transform.position);
+        Vector2 playerScreenPos = MainCameraController.Instance.mainCamera.WorldToScreenPoint(_playerController.transform.position);
         return (mouseScreenPos - playerScreenPos).normalized;
     }
 

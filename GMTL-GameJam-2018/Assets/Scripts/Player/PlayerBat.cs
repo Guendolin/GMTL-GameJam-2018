@@ -7,20 +7,48 @@ public class PlayerBat {
 
     private enum BatPosition { None, Left = -1, Right = 1}
 
+    [Header("Refs")]
     public Transform batPivot;
     public Transform batGraphics;
 
+    [Header("hitbox")]
+
+    public LayerMask hitMask;
+    public Vector2 hitBoxSize;
+    public Vector2 hitBoxOffset;
+
+    [Header("Animation")]
     public AnimationCurve batSwing;
+
+    private PlayerController _playerController;
 
     private BatPosition _currentBatPos = BatPosition.Left;
     private float _swingTime = -1;
+    private bool _isSwining = false;
 
-    private const float ANGLE_LEFT = 45f;
-    private const float ANGLE_RIGHT = -225;
+    private float _currentBatAngle;
 
-    public void Init()
+    private List<Collider2D> _hitObjects;
+    private Collider2D[] _hitResults;
+    private ContactFilter2D _contactFilter;
+
+    private const float ANGLE_LEFT = 75f;
+    private const float ANGLE_RIGHT = -255;
+
+    private int _test;
+
+    public void Init(PlayerController playerController)
     {
-        SetBatGrahpicsRotation(_currentBatPos == BatPosition.Left ? ANGLE_LEFT : ANGLE_RIGHT);
+        _playerController = playerController;
+
+        _currentBatAngle = _currentBatPos == BatPosition.Left ? ANGLE_LEFT : ANGLE_RIGHT;
+        SetBatGrahpicsRotation(_currentBatAngle);
+
+        _hitObjects = new List<Collider2D>();
+        _hitResults = new Collider2D[16];
+
+        _contactFilter = new ContactFilter2D();
+        _contactFilter.SetLayerMask(hitMask);
     }
 
 	// Update is called once per frame
@@ -32,25 +60,45 @@ public class PlayerBat {
             Quaternion batRotation = Quaternion.Euler(0, 0, angle);
             batPivot.localRotation = batRotation;
         }
+	}
 
-        if(_swingTime >= 0)
+    public void FixedTick()
+    {
+        if (_swingTime >= 0)
         {
             _swingTime += Time.deltaTime;
 
             float from = _currentBatPos == BatPosition.Left ? ANGLE_LEFT : ANGLE_RIGHT;
             float to = _currentBatPos == BatPosition.Left ? ANGLE_RIGHT : ANGLE_LEFT;
 
-            float current = Mathf.LerpUnclamped(from, to, batSwing.Evaluate(_swingTime));
+            _currentBatAngle = Mathf.LerpUnclamped(from, to, batSwing.Evaluate(_swingTime));
+            SetBatGrahpicsRotation(_currentBatAngle);
 
-            SetBatGrahpicsRotation(current);
+            _test++;
+            Vector2 boxPos = batGraphics.TransformPoint(hitBoxOffset);
+            int numbHits = Physics2D.OverlapBox(boxPos, hitBoxSize, _currentBatAngle, _contactFilter, _hitResults);
+            for (int i = 0; i < numbHits; i++)
+            {
+                Collider2D hit = _hitResults[i];
+                if (hit.attachedRigidbody != null && !_hitObjects.Contains(hit) && hit.gameObject != _playerController.gameObject)
+                {
+                    Debug.Log(hit.name);
+                    hit.attachedRigidbody.velocity = batPivot.right * 5f;
+                    _hitObjects.Add(hit);
+                }
+            }
+            Debug.DrawRay(boxPos, batPivot.right, Color.white, 10f);
+
 
             if (_swingTime >= batSwing.Duration())
             {
                 _swingTime = -1f;
+                _isSwining = false;
                 _currentBatPos = (BatPosition)(((int)_currentBatPos) * -1);
+                _hitObjects.Clear();
             }
-        }	
-	}
+        }
+    }
 
     private void SetBatGrahpicsRotation(float angle)
     {
@@ -62,6 +110,7 @@ public class PlayerBat {
         if(_swingTime < 0)
         {
             _swingTime = 0;
+            _isSwining = true;
         }
     }
 }

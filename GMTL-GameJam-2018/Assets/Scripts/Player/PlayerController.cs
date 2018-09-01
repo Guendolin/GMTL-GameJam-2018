@@ -4,54 +4,48 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public Camera mainCamera;
-
-    [Space]
+    public LayerMask blockingLayers;
 
     public PlayerInput playerInput;
     public PlayerBat playerBat;
 
+    private Rigidbody2D _rioggidBody;
+    
 
+    private const float RADIUS = 0.5f;
     private const float MOVEMENT_SPEED = 5f;
-
 
 	// Use this for initialization
 	void Start () {
 
-        if(mainCamera == null)
-        {
-            mainCamera = Camera.main;
-        }
-
-
         playerInput.Init(this);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        playerBat.Init(this);
+
+        _rioggidBody = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         Vector2 movement = playerInput.GetMovement();
 
         Vector2? aim = playerInput.GetAim();
-        Vector3 movementTranslate = (MOVEMENT_SPEED * Time.deltaTime) * movement;
+        Vector3 movementVelocity = movement * MOVEMENT_SPEED;
 
-        Vector3 newPos = transform.position + movementTranslate;
-        transform.position = newPos;
+        _rioggidBody.velocity = movementVelocity;
 
+    
         if (playerInput.GetSwing())
         {
             playerBat.SwingBat();
         }
-
         playerBat.Tick(aim);
-  
-
-        Debug.DrawRay(transform.position, movement, Color.red);
-        if (aim.HasValue)
-        {
-            Debug.DrawRay(transform.position, aim.Value, Color.green);
-        }
     }
 
+    private void FixedUpdate()
+    {
+        playerBat.FixedTick();
+    }
 
 }
