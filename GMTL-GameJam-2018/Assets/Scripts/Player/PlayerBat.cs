@@ -10,6 +10,7 @@ public class PlayerBat {
     [Header("Refs")]
     public Transform batPivot;
     public Transform batGraphics;
+    public ParticleSystem batHitParticles;
 
     [Header("hitbox")]
 
@@ -47,6 +48,8 @@ public class PlayerBat {
 
         _contactFilter = new ContactFilter2D();
         _contactFilter.SetLayerMask(hitMask);
+
+        batHitParticles.transform.parent = null;
     }
 
 	// Update is called once per frame
@@ -83,6 +86,9 @@ public class PlayerBat {
                     hit.attachedRigidbody.velocity = batPivot.right * 5f;
                     _hitObjects.Add(hit);
                     hitSomething = true;
+
+                    batHitParticles.transform.position = hit.attachedRigidbody.transform.position - Vector3.forward *5f;
+                    batHitParticles.Play();
                 }
             }
             if (hitSomething)
