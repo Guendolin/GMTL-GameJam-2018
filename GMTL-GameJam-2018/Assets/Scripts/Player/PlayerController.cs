@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 
         playerInput.Init(this);
-        playerBat.Init();
+        playerBat.Init(this);
 
         _rioggidBody = GetComponent<Rigidbody2D>();
     }
@@ -35,13 +35,17 @@ public class PlayerController : MonoBehaviour {
 
         _rioggidBody.velocity = movementVelocity;
 
-
+    
         if (playerInput.GetSwing())
         {
             playerBat.SwingBat();
         }
         playerBat.Tick(aim);
+    }
 
+    private void FixedUpdate()
+    {
+        playerBat.FixedTick();
     }
 
 }

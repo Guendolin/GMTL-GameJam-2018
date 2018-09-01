@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4393451848038970}
   - component: {fileID: 212820487627457564}
+  - component: {fileID: 61930164539044330}
   m_Layer: 9
   m_Name: SP_Bat
   m_TagString: Untagged
@@ -195,6 +196,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!61 &61930164539044330
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032982530359692}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05, y: 0.6}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.9511719, y: 0.9511719}
+    newSize: {x: 0.9511719, y: 0.9511719}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 1.2}
+  m_EdgeRadius: 0
 --- !u!114 &114650105525181658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,6 +238,11 @@ MonoBehaviour:
   playerBat:
     batPivot: {fileID: 4825139843824658}
     batGraphics: {fileID: 4491644738924694}
+    hitMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    hitBoxSize: {x: 0.3, y: 1.2}
+    hitBoxOffset: {x: 0.05, y: 0.6}
     batSwing:
       serializedVersion: 2
       m_Curve:
