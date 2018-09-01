@@ -227,7 +227,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 2.57
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -302,6 +302,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32aca1ab78aac7d41a4a9c67c98f72e8, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &1628927695
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4997919648000804, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997919648000804, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997919648000804, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997919648000804, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997919648000804, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997919648000804, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997919648000804, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997919648000804, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1956629118
 Prefab:
