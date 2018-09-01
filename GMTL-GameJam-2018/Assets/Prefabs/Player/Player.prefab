@@ -951,8 +951,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0.2
         value: 0.99827576
-        inSlope: -5.411678
-        outSlope: -5.411678
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.07825841
@@ -962,6 +962,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   playerAnimation:
     playerAnimator: {fileID: 95306777129694674}
+    batAnimator: {fileID: 95925531384085148}
 --- !u!114 &114674724381187604
 MonoBehaviour:
   m_ObjectHideFlags: 1

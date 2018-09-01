@@ -96,8 +96,20 @@ public class PlayerBat {
             {
                 _swingTime = -1f;
                 _isSwining = false;
-                _currentBatPos = (BatPosition)(((int)_currentBatPos) * -1);
+
                 _hitObjects.Clear();
+
+
+                if(_currentBatPos == BatPosition.Right)
+                {
+                    _playerController.playerAnimation.BatWobbleLeft();
+                }
+                else
+                {
+                    _playerController.playerAnimation.BatWobbleRight();
+                }
+
+                _currentBatPos = (BatPosition)(((int)_currentBatPos) * -1);
             }
         }
     }
