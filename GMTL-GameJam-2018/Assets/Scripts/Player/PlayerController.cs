@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
 
     public Rigidbody2D riggidBody { get; private set; }
 
+    private Vector3 _movementVelocity;
+
     private const float RADIUS = 0.5f;
     private const float MOVEMENT_SPEED = 5f;
 
@@ -33,11 +35,9 @@ public class PlayerController : MonoBehaviour {
         Vector2 movement = playerInput.GetMovement();
 
         Vector2? aim = playerInput.GetAim();
-        Vector3 movementVelocity = movement * MOVEMENT_SPEED;
+        _movementVelocity = movement * MOVEMENT_SPEED;
 
-        riggidBody.velocity = movementVelocity;
-
-        playerAnimation.SetPlayerRun(movementVelocity.magnitude > 0.01f);
+        playerAnimation.SetPlayerRun(_movementVelocity.magnitude > 0.01f);
     
         if (playerInput.GetSwing())
         {
@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        riggidBody.velocity = _movementVelocity;
         playerBat.FixedTick();
     }
 

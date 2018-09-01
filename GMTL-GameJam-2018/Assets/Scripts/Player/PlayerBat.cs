@@ -32,8 +32,8 @@ public class PlayerBat {
     private Collider2D[] _hitResults;
     private ContactFilter2D _contactFilter;
 
-    private const float ANGLE_LEFT = 150;
-    private const float ANGLE_RIGHT = -150;
+    private const float ANGLE_LEFT = 175;
+    private const float ANGLE_RIGHT = -175;
 
     public void Init(PlayerController playerController)
     {
@@ -96,8 +96,20 @@ public class PlayerBat {
             {
                 _swingTime = -1f;
                 _isSwining = false;
-                _currentBatPos = (BatPosition)(((int)_currentBatPos) * -1);
+
                 _hitObjects.Clear();
+
+
+                if(_currentBatPos == BatPosition.Right)
+                {
+                    _playerController.playerAnimation.BatWobbleLeft();
+                }
+                else
+                {
+                    _playerController.playerAnimation.BatWobbleRight();
+                }
+
+                _currentBatPos = (BatPosition)(((int)_currentBatPos) * -1);
             }
         }
     }
