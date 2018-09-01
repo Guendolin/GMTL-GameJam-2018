@@ -32,10 +32,8 @@ public class PlayerBat {
     private Collider2D[] _hitResults;
     private ContactFilter2D _contactFilter;
 
-    private const float ANGLE_LEFT = 75f;
-    private const float ANGLE_RIGHT = -255;
-
-    private int _test;
+    private const float ANGLE_LEFT = 150;
+    private const float ANGLE_RIGHT = -150;
 
     public void Init(PlayerController playerController)
     {
@@ -74,18 +72,22 @@ public class PlayerBat {
             _currentBatAngle = Mathf.LerpUnclamped(from, to, batSwing.Evaluate(_swingTime));
             SetBatGrahpicsRotation(_currentBatAngle);
 
-            _test++;
             Vector2 boxPos = batGraphics.TransformPoint(hitBoxOffset);
             int numbHits = Physics2D.OverlapBox(boxPos, hitBoxSize, _currentBatAngle, _contactFilter, _hitResults);
+            bool hitSomething = false;
             for (int i = 0; i < numbHits; i++)
             {
                 Collider2D hit = _hitResults[i];
                 if (hit.attachedRigidbody != null && !_hitObjects.Contains(hit) && hit.gameObject != _playerController.gameObject)
                 {
-                    Debug.Log(hit.name);
                     hit.attachedRigidbody.velocity = batPivot.right * 5f;
                     _hitObjects.Add(hit);
+                    hitSomething = true;
                 }
+            }
+            if (hitSomething)
+            {
+                //CameraShakerController.CameraShake();
             }
             Debug.DrawRay(boxPos, batPivot.right, Color.white, 10f);
 
