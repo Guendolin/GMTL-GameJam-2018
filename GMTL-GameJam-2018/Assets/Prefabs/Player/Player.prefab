@@ -1027,7 +1027,7 @@ MonoBehaviour:
     batHitParticles: {fileID: 198235626213949720}
     hitMask:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 3072
     hitBoxSize: {x: 0.3, y: 1.2}
     hitBoxOffset: {x: 0, y: 0.6}
     batSwing:
