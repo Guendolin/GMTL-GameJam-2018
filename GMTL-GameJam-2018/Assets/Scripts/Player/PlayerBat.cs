@@ -15,8 +15,8 @@ public class PlayerBat {
     private BatPosition _currentBatPos = BatPosition.Left;
     private float _swingTime = -1;
 
-    private const float ANGLE_LEFT = 45f;
-    private const float ANGLE_RIGHT = -225;
+    private const float ANGLE_LEFT = 75f;
+    private const float ANGLE_RIGHT = -255;
 
     public void Init()
     {
