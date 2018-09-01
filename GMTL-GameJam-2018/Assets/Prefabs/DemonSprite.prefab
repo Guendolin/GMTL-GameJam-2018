@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 4274090162896382}
   - component: {fileID: 95726959680289618}
   m_Layer: 0
-  m_Name: Demon
+  m_Name: DemonSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
