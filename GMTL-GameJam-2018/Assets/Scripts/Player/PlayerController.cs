@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 _movementVelocity;
 
     private const float RADIUS = 0.5f;
-    private const float MOVEMENT_SPEED = 5f;
+    private const float MOVEMENT_SPEED = 2f;
 
 	// Use this for initialization
 	void Start ()

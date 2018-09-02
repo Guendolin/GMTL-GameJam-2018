@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 0}
-  speed: 4
+  speed: 2
   fireball: {fileID: 1337274073378422, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
   fireballSpeed: 5
 --- !u!114 &114706805138524724

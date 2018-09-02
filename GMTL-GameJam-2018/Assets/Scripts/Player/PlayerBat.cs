@@ -91,7 +91,7 @@ public class PlayerBat : PlayerSubComponent {
             }
             if (hitSomething)
             {
-                //CameraShakerController.CameraShake();
+                CameraShakerController.CameraShake();
             }
 
             if (_swingTime >= batSwing.Duration())

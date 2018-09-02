@@ -366,10 +366,6 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1526943226582262, guid: 3d06e22f8525f1945bf8700df6f71206, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d06e22f8525f1945bf8700df6f71206, type: 2}
   m_IsPrefabAsset: 0
@@ -604,16 +600,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114704825057366226, guid: fbac66ba26870dc44ac49a8a6b916db3,
-        type: 2}
-      propertyPath: playerTarget
-      value: 
-      objectReference: {fileID: 655407398}
     - target: {fileID: 137974715977343352, guid: fbac66ba26870dc44ac49a8a6b916db3,
         type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114704825057366226, guid: fbac66ba26870dc44ac49a8a6b916db3,
+        type: 2}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 655407398}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbac66ba26870dc44ac49a8a6b916db3, type: 2}
   m_IsPrefabAsset: 0
