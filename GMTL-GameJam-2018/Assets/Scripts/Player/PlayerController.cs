@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
         playerInput.Init(this);
         playerBat.Init(this);
         playerAnimation.Init(this);
+
+        GameManager.instance.Player = this.transform;
     }
 
     // Update is called once per frame

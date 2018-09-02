@@ -31,8 +31,8 @@ public class PlayerBat : PlayerSubComponent {
     private Collider2D[] _hitResults;
     private ContactFilter2D _contactFilter;
 
-    private const float ANGLE_LEFT = 175;
-    private const float ANGLE_RIGHT = -175;
+    private const float ANGLE_LEFT = 80;
+    private const float ANGLE_RIGHT = -260;
 
     public override void Init(PlayerController playerController)
     {
@@ -74,6 +74,7 @@ public class PlayerBat : PlayerSubComponent {
             SetBatGrahpicsRotation(_currentBatAngle);
 
             Vector2 boxPos = batGraphics.TransformPoint(hitBoxOffset);
+            debugPosition.transform.position = boxPos;
             int numbHits = Physics2D.OverlapBox(boxPos, hitBoxSize, _currentBatAngle, _contactFilter, _hitResults);
             bool hitSomething = false;
             for (int i = 0; i < numbHits; i++)
