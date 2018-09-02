@@ -20,6 +20,8 @@ public class EnemyBehaviour : MonoBehaviour
     public float fireballSpeed;
 
 	public GameObject destroyFX;
+
+	private bool isdead;
     // Use this for initialization
     void Start()
     {
@@ -64,7 +66,12 @@ public class EnemyBehaviour : MonoBehaviour
 
 	public void Die()
 	{
-		Instantiate(destroyFX, transform.position, Quaternion.identity);
+		if(isdead == false)
+		{
+			Instantiate(destroyFX, transform.position, Quaternion.identity);
+			GameManager.instance.AddScore();
+			isdead = true;
+		}
 		Destroy(gameObject);
 	}
 }
