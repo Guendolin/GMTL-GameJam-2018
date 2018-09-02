@@ -33,6 +33,16 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (GameManager.instance.gameState == GameManager.GameState.Playing)
         {
+            if (GameManager.instance.Player == null)
+            {
+                return;
+            }
+
+            if (playerTarget == null)
+            {
+                playerTarget = GameManager.instance.Player;
+            }
+
             Vector2 dirVector = playerTarget.position - transform.position;
             rb.AddForce(dirVector * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
