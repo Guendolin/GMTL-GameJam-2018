@@ -26,23 +26,25 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemyRoutine()
     {
-		//Delay to make sure that the player has been spawned
-		yield return new WaitForSeconds(0.1f);
+        //Delay to make sure that the player has been spawned
+        yield return new WaitForSeconds(0.1f);
         float randomX = Random.Range(-spawnXPos, spawnXPos);
         float randomY = Random.Range(-spawnYPos, spawnYPos);
         Vector2 randomSpawnPos = new Vector2(randomX, randomY);
-        Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
-
-        yield return new WaitForSeconds(spawnTime);
-
-        if (spawnTime > 0.5f)
-        {
-            spawnTime -= 0.1f;
-        }
         if (GameManager.instance.gameState == GameManager.GameState.Playing)
         {
-            StartCoroutine(SpawnEnemyRoutine());
+            Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
+            yield return new WaitForSeconds(spawnTime);
+            if (spawnTime > 0.5f)
+            {
+                spawnTime -= 0.1f;
+            }
         }
+
+
+
+        StartCoroutine(SpawnEnemyRoutine());
+
 
     }
 }

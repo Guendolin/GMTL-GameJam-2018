@@ -26,7 +26,15 @@ public class GameManager : MonoBehaviour
 
 	public Text scoreText;
 
+	public Text scoreTextGameOver;
+	public GameObject highScoreObject;
+	public GameObject mainMenuHighScoreObject;
+
+	public Text mainMenuHighScoreText;
+
 	public Animator scoreAnim;
+
+	public Animator fadeAnimator;
 
     public Transform Player
     {
@@ -43,13 +51,27 @@ public class GameManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+
+		highScore = PlayerPrefs.GetInt("Highscore");
+        //gameState = GameState.Menu;
+		Debug.Log(highScore);
+		UpdateHighscore();
+		fadeAnimator.SetTrigger("FadeIn");
     }
 
     void Start()
     {
-		highScore = PlayerPrefs.GetInt("highScore");
-        //gameState = GameState.Menu;
+		
     }
+
+	void UpdateHighscore()
+	{
+		if(PlayerPrefs.GetInt("Highscore") > 0)
+		{
+			mainMenuHighScoreObject.SetActive(true);
+			mainMenuHighScoreText.text = PlayerPrefs.GetInt("Highscore").ToString();
+		}
+	}
 
     public void Damage(int playerHealth)
     {
@@ -63,8 +85,21 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        StartCoroutine(ChangeSceneRoutine(sceneName));
     }
+
+	IEnumerator ChangeSceneRoutine(string sceneName)
+	{
+		fadeAnimator.SetTrigger("FadeOut");
+		yield return new WaitForSeconds(0.5f);
+		SceneManager.LoadScene(sceneName);
+		fadeAnimator.SetTrigger("FadeIn");
+		if(sceneName == "MainMenu")
+		{
+			mainMenu.SetActive(true);
+		}
+		UpdateHighscore();
+	}
 
     public void RestartScene()
     {
@@ -73,11 +108,19 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("MainGame");
+        ChangeScene("MainGame");
+		StartCoroutine(StartGameRoutine());
+    }
+
+	IEnumerator StartGameRoutine()
+	{
+		yield return new WaitForSeconds(0.3f);
+		mainGameUI.SetActive(true);
+		yield return new WaitForSeconds (3.8f);
 		score = 0;
         gameState = GameState.Playing;
-        mainGameUI.SetActive(true);
-    }
+        
+	}
     public void Died()
     {
         gameState = GameState.GameOver;
@@ -89,6 +132,13 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 		mainGameUI.SetActive(false);
         gameOverMenu.SetActive(true);
+		scoreTextGameOver.text = score.ToString();
+		if(score > PlayerPrefs.GetInt("Highscore"))
+		{
+			highScoreObject.SetActive(true);
+			PlayerPrefs.SetInt("Highscore", score);
+			Debug.Log(PlayerPrefs.GetInt("Highscore"));
+		}
 	}
 
 	public void AddScore()
