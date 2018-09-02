@@ -35,9 +35,16 @@ public class PlayerHealth : MonoBehaviour
         health --;
         if(health <= 0)
         {
-            Destroy(gameObject);
+            GameManager.instance.Died();
+            PlayerDied();
         }
         yield return new WaitForSeconds(0.2f);
         wasHit = false;
+    }
+
+    public void PlayerDied()
+    {
+        //Hide UI arrow
+        //Play death animation
     }
 }

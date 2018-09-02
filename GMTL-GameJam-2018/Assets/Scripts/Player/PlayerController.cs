@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     [Header("Movement")]
     public LayerMask blockingLayers;
@@ -19,8 +20,8 @@ public class PlayerController : MonoBehaviour {
     private const float RADIUS = 0.5f;
     private const float MOVEMENT_SPEED = 2f;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         riggidBody = GetComponent<Rigidbody2D>();
 
@@ -32,24 +33,35 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Vector2 movement = playerInput.GetMovement();
-
-        Vector2? aim = playerInput.GetAim();
-        _movementVelocity = movement * MOVEMENT_SPEED;
-
-        playerAnimation.SetPlayerRun(_movementVelocity.magnitude > 0.01f);
-    
-        if (playerInput.GetSwing())
+        if (GameManager.instance.gameState == GameManager.GameState.Playing)
         {
-            playerBat.SwingBat();
+            Vector2 movement = playerInput.GetMovement();
+
+            Vector2? aim = playerInput.GetAim();
+            _movementVelocity = movement * MOVEMENT_SPEED;
+
+            playerAnimation.SetPlayerRun(_movementVelocity.magnitude > 0.01f);
+
+            if (playerInput.GetSwing())
+            {
+                playerBat.SwingBat();
+            }
+            playerBat.Tick(aim);
         }
-        playerBat.Tick(aim);
     }
 
     private void FixedUpdate()
     {
-        riggidBody.velocity = _movementVelocity;
-        playerBat.FixedTick();
+        if (GameManager.instance.gameState == GameManager.GameState.Playing)
+        {
+            riggidBody.velocity = _movementVelocity;
+            playerBat.FixedTick();
+        }
+        else
+        {
+            playerAnimation.SetPlayerRun(false);
+            riggidBody.velocity = Vector2.zero;
+        }
     }
 
 }
