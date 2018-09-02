@@ -256,6 +256,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &866911241
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4471956366187588, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471956366187588, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471956366187588, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471956366187588, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471956366187588, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471956366187588, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471956366187588, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471956366187588, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566048390553630, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 81c41a00066e6ce4e890a664385bb853, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1310830408
 Prefab:
   m_ObjectHideFlags: 0
