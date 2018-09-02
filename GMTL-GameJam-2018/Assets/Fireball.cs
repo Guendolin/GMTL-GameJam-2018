@@ -36,6 +36,7 @@ public class Fireball : MonoBehaviour
 		if(other.gameObject.CompareTag("Enemy"))
 		{
 			other.gameObject.GetComponent<EnemyBehaviour>().Die();
+            CameraShakerController.CameraShake();
 			DestroyMe();
 		}
 	}
