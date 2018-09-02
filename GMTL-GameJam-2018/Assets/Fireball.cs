@@ -6,6 +6,9 @@ public class Fireball : MonoBehaviour
 {
 
     private Rigidbody2D rb;
+
+    public GameObject destroyFX;
+    public GameObject bounceFX;
     // Use this for initialization
     void Start()
     {
@@ -32,9 +35,13 @@ public class Fireball : MonoBehaviour
 	{
 		if(other.gameObject.CompareTag("Enemy"))
 		{
-			Destroy(other.gameObject);
-			Destroy(gameObject);
+			other.gameObject.GetComponent<EnemyBehaviour>().Die();
+			DestroyMe();
 		}
+	}
+    void OnCollisionEnter2D(Collision2D other)
+	{
+		Instantiate(bounceFX, other.contacts[0].point, Quaternion.identity);
 	}
 
 	IEnumerator ChangeLayer()
@@ -42,4 +49,10 @@ public class Fireball : MonoBehaviour
 		yield return new WaitForSeconds(0.3f);
 		gameObject.layer = 10;
 	}
+
+    public void DestroyMe()
+    {
+        Instantiate(bounceFX, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 }

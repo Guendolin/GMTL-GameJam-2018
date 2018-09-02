@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
 
-    public Transform playerTarget;
+    private Transform playerTarget;
 
     private Rigidbody2D rb;
 
@@ -16,11 +16,14 @@ public class EnemyBehaviour : MonoBehaviour
     public GameObject fireball;
 
     public float fireballSpeed;
+
+	public GameObject destroyFX;
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(ShootFireballRoutine());
+		playerTarget = GameManager.instance.Player;
     }
 
     // Update is called once per frame
@@ -45,4 +48,10 @@ public class EnemyBehaviour : MonoBehaviour
             StartCoroutine(ShootFireballRoutine());
         }
     }
+
+	public void Die()
+	{
+		Instantiate(destroyFX, transform.position, Quaternion.identity);
+		Destroy(gameObject);
+	}
 }

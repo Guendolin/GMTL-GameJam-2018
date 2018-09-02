@@ -1101,7 +1101,6 @@ MonoBehaviour:
     batPivot: {fileID: 4825139843824658}
     batGraphics: {fileID: 4491644738924694}
     batHitParticles: {fileID: 198235626213949720}
-    debugPosition: {fileID: 0}
     hitMask:
       serializedVersion: 2
       m_Bits: 7168
@@ -1302,7 +1301,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43663572717056398, guid: c24f650c200a69047b3b73dd49c1bcf3, type: 2}
   m_Bones:
   - {fileID: 4680038699212920}
   - {fileID: 4412330687335364}
@@ -1356,7 +1355,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43290082425166880, guid: ad5046961b830f7469b6a303aa19da93, type: 2}
   m_Bones:
   - {fileID: 4959653257631278}
   - {fileID: 4978458093350092}

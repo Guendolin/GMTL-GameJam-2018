@@ -5,13 +5,23 @@ using UnityEngine;
 public class DestroyAfterTime : MonoBehaviour {
 
 	public float timeToDestroy;
+
+	public bool destroyWithParticle;
+
+	public GameObject particle;
 	// Use this for initialization
 	void Start () {
-		Destroy(gameObject, timeToDestroy);
+		StartCoroutine(DestroyRoutine());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	IEnumerator DestroyRoutine()
+	{
+		yield return new WaitForSeconds(timeToDestroy);
+		if(destroyWithParticle)
+		{
+			Instantiate(particle, transform.position, Quaternion.identity);
+		}
+		Destroy(gameObject);
 	}
+
 }

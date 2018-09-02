@@ -12,24 +12,43 @@ public class GameManager : MonoBehaviour
 
     public GameState gameState;
 
-	public GameObject mainMenu;
-	public GameObject gameOverMenu;
-	public GameObject mainGameUI;
+    public GameObject mainMenu;
+    public GameObject gameOverMenu;
+    public GameObject mainGameUI;
+
+    private Transform playerPrefab;
+
+    public Transform healthContainer;
+
+    public Transform Player
+    {
+        get { return playerPrefab.transform; }
+        set { playerPrefab = value; }
+    }
 
     void Awake()
     {
         if (instance != null)
         {
-			Destroy(instance.gameObject);
+            Destroy(instance.gameObject);
         }
 
-		instance = this;
+        instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
     {
         gameState = GameState.Menu;
+    }
+
+    public void Damage(int playerHealth)
+    {
+        if (healthContainer.GetChild(playerHealth - 1) != null)
+        {
+            healthContainer.GetChild(playerHealth - 1).gameObject.SetActive(false);
+            CameraShakerController.CameraShake();
+        }
     }
 
     public void ChangeScene(string sceneName)
@@ -45,14 +64,14 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("MainGame");
-		gameState = GameState.Playing;
-		mainGameUI.SetActive(true);
+        gameState = GameState.Playing;
+        mainGameUI.SetActive(true);
     }
-	public void Died()
+    public void Died()
     {
         gameState = GameState.GameOver;
-		mainGameUI.SetActive(false);
-		gameOverMenu.SetActive(true);
+        mainGameUI.SetActive(false);
+        gameOverMenu.SetActive(true);
     }
 
 }

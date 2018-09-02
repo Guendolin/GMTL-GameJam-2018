@@ -887,10 +887,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d946fdd28ece4cd48b347c1dc1bcfbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTarget: {fileID: 0}
   speed: 2
   fireball: {fileID: 1337274073378422, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
   fireballSpeed: 5
+  destroyFX: {fileID: 1552280767558864, guid: 721efe4782fd77f45963b305b4e34775, type: 2}
 --- !u!114 &114706805138524724
 MonoBehaviour:
   m_ObjectHideFlags: 1

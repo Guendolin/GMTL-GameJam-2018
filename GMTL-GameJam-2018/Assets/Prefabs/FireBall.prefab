@@ -228,6 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02d7b3bf8a54224f8636b06d6612c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyFX: {fileID: 1036298202622734, guid: 991b451f2f54fc248bf59910011dff95, type: 2}
+  bounceFX: {fileID: 1501609716623444, guid: aecec037c7a1ab241833e9568a969a89, type: 2}
 --- !u!114 &114355253421866292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,6 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 3
+  destroyWithParticle: 1
+  particle: {fileID: 1036298202622734, guid: 991b451f2f54fc248bf59910011dff95, type: 2}
 --- !u!198 &198077288954494684
 ParticleSystem:
   m_ObjectHideFlags: 1

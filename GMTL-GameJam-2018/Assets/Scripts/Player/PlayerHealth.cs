@@ -26,12 +26,13 @@ public class PlayerHealth : MonoBehaviour
                 StartCoroutine(HitRoutine());
                 wasHit = true;
             }
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Fireball>().DestroyMe();
         }
     }
 
     IEnumerator HitRoutine()
     {
+        GameManager.instance.Damage(health);
         health --;
         if(health <= 0)
         {
