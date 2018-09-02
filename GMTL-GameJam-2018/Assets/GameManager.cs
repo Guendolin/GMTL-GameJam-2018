@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator GameOverRoutine()
 	{
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1f);
 		mainGameUI.SetActive(false);
         gameOverMenu.SetActive(true);
 	}
