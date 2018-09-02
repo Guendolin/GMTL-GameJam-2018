@@ -55,6 +55,7 @@ public class EnemyBehaviour : MonoBehaviour
 	public void Die()
 	{
 		Instantiate(destroyFX, transform.position, Quaternion.identity);
+		GameManager.instance.AddScore();
 		Destroy(gameObject);
 	}
 }

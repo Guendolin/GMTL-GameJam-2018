@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
 
     public Animator playerAnimator;
 
+    private bool isDead;
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -34,16 +36,20 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator HitRoutine()
     {
-        GameManager.instance.Damage(health);
-        health--;
-        playerAnimator.SetTrigger("Hit");
-        if (health <= 0)
+        if (isDead == false)
         {
-            GameManager.instance.Died();
-            PlayerDied();
+            GameManager.instance.Damage(health);
+            health--;
+
+            playerAnimator.SetTrigger("Hit");
+            if (health <= 0)
+            {
+                GameManager.instance.Died();
+                PlayerDied();
+            }
+            yield return new WaitForSeconds(0.2f);
+            wasHit = false;
         }
-        yield return new WaitForSeconds(0.2f);
-        wasHit = false;
     }
 
     public void PlayerDied()
@@ -51,5 +57,6 @@ public class PlayerHealth : MonoBehaviour
         //Hide UI arrow
         //Play death animation
         playerAnimator.SetTrigger("Die");
+        isDead = true;
     }
 }

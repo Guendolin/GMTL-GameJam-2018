@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -19,6 +20,13 @@ public class GameManager : MonoBehaviour
     private Transform playerPrefab;
 
     public Transform healthContainer;
+
+	private int score;
+	private int highScore;
+
+	public Text scoreText;
+
+	public Animator scoreAnim;
 
     public Transform Player
     {
@@ -39,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+		highScore = PlayerPrefs.GetInt("highScore");
         gameState = GameState.Menu;
     }
 
@@ -65,6 +74,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("MainGame");
+		score = 0;
         gameState = GameState.Playing;
         mainGameUI.SetActive(true);
     }
@@ -74,5 +84,12 @@ public class GameManager : MonoBehaviour
         mainGameUI.SetActive(false);
         gameOverMenu.SetActive(true);
     }
+
+	public void AddScore()
+	{
+		scoreAnim.SetTrigger("GetScore");
+		score ++;
+		scoreText.text = score.ToString();
+	}
 
 }
