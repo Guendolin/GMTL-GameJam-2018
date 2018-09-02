@@ -74,7 +74,7 @@ public class PlayerBat : PlayerSubComponent {
             SetBatGrahpicsRotation(_currentBatAngle);
 
             Vector2 boxPos = batGraphics.TransformPoint(hitBoxOffset);
-            debugPosition.transform.position = boxPos;
+            
             int numbHits = Physics2D.OverlapBox(boxPos, hitBoxSize, _currentBatAngle, _contactFilter, _hitResults);
             bool hitSomething = false;
             for (int i = 0; i < numbHits; i++)
