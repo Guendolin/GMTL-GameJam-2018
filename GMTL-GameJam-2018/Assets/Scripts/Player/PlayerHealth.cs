@@ -9,19 +9,21 @@ public class PlayerHealth : MonoBehaviour
 
     public bool wasHit;
 
+    public Animator playerAnimator;
+
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            if(wasHit == false)
+            if (wasHit == false)
             {
                 StartCoroutine(HitRoutine());
                 wasHit = true;
             }
         }
-        else if(other.gameObject.CompareTag("Projectile"))
+        else if (other.gameObject.CompareTag("Projectile"))
         {
-            if(wasHit == false)
+            if (wasHit == false)
             {
                 StartCoroutine(HitRoutine());
                 wasHit = true;
@@ -33,8 +35,9 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator HitRoutine()
     {
         GameManager.instance.Damage(health);
-        health --;
-        if(health <= 0)
+        health--;
+        playerAnimator.SetTrigger("Hit");
+        if (health <= 0)
         {
             GameManager.instance.Died();
             PlayerDied();
@@ -47,5 +50,6 @@ public class PlayerHealth : MonoBehaviour
     {
         //Hide UI arrow
         //Play death animation
+        playerAnimator.SetTrigger("Die");
     }
 }

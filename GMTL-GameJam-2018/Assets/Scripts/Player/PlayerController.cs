@@ -61,7 +61,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            playerAnimation.SetPlayerRun(false);
+            //playerAnimation.SetPlayerRun(false);
+           
             riggidBody.velocity = Vector2.zero;
         }
     }

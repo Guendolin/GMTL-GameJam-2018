@@ -44,7 +44,10 @@ public class GameManager : MonoBehaviour
 
     public void Damage(int playerHealth)
     {
-        healthContainer.GetChild(playerHealth - 1).gameObject.GetComponent<Animator>().SetTrigger("Damage");
+		if(playerHealth != 0)
+		{
+        	healthContainer.GetChild(playerHealth - 1).gameObject.GetComponent<Animator>().SetTrigger("Damage");
+		}
         CameraShakerController.CameraShake();
         Debug.Log("PlayerHit");
     }

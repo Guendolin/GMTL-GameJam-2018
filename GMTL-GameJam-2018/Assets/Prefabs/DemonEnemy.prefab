@@ -83,7 +83,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4698971659515600}
-  - component: {fileID: 95751898798535386}
   m_Layer: 12
   m_Name: MouthOwner
   m_TagString: Untagged
@@ -200,6 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4143286412927308}
   - component: {fileID: 114783759528991500}
+  - component: {fileID: 95792783275903022}
   m_Layer: 12
   m_Name: Head
   m_TagString: Untagged
@@ -218,6 +218,21 @@ GameObject:
   - component: {fileID: 95976984486291364}
   m_Layer: 12
   m_Name: DemonSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1600460914457774
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4804531380555730}
+  m_Layer: 12
+  m_Name: FirePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,6 +395,7 @@ Transform:
   - {fileID: 4264346952755022}
   - {fileID: 4821560648552238}
   - {fileID: 4698971659515600}
+  - {fileID: 4804531380555730}
   m_Father: {fileID: 4561484176624550}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.70500004}
@@ -558,6 +574,19 @@ Transform:
   m_Father: {fileID: 4821560648552238}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4804531380555730
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1600460914457774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.115, y: -0.001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4143286412927308}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4821560648552238
 Transform:
   m_ObjectHideFlags: 1
@@ -713,16 +742,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95751898798535386
+--- !u!95 &95792783275903022
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1157663368589206}
+  m_GameObject: {fileID: 1299940578720688}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f7ab74f014c15940bae03ab26ed7820, type: 2}
+  m_Controller: {fileID: 9100000, guid: b6fbaa6c1c6357749985c9e96938b251, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -887,7 +916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d946fdd28ece4cd48b347c1dc1bcfbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firePosition: {fileID: 4804531380555730}
   speed: 2
+  headAnim: {fileID: 95792783275903022}
   fireball: {fileID: 1337274073378422, guid: fd6417f3c750eff42947f33da99e0f19, type: 2}
   fireballSpeed: 5
   destroyFX: {fileID: 1552280767558864, guid: 721efe4782fd77f45963b305b4e34775, type: 2}

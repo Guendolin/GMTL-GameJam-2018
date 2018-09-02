@@ -7,11 +7,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     private Transform playerTarget;
 
+	public Transform firePosition;
+
     private Rigidbody2D rb;
 
     public float speed;
 
-    private Animator mouthAnim;
+    [SerializeField]private Animator headAnim;
 
     public GameObject fireball;
 
@@ -43,8 +45,9 @@ public class EnemyBehaviour : MonoBehaviour
         if (GameManager.instance.gameState == GameManager.GameState.Playing)
         {
             Quaternion towardsPlayerRot = Quaternion.LookRotation(playerTarget.position - transform.position, Vector3.forward);
-            GameObject newFireball = Instantiate(fireball, transform.position, towardsPlayerRot);
+            GameObject newFireball = Instantiate(fireball, firePosition.position, towardsPlayerRot);
             newFireball.GetComponent<Fireball>().Init(fireballSpeed);
+			headAnim.SetTrigger("Fire");
             StartCoroutine(ShootFireballRoutine());
         }
     }
