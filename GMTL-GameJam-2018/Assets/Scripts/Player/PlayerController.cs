@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.instance.gameState == GameManager.GameState.Playing)
         {
+            playerInput.Tick();
+
             Vector2 movement = playerInput.GetMovement();
 
             Vector2? aim = playerInput.GetAim();
