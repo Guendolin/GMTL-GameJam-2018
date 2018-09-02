@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 		highScore = PlayerPrefs.GetInt("highScore");
-        gameState = GameState.Menu;
+        //gameState = GameState.Menu;
     }
 
     public void Damage(int playerHealth)
