@@ -81,9 +81,15 @@ public class GameManager : MonoBehaviour
     public void Died()
     {
         gameState = GameState.GameOver;
-        mainGameUI.SetActive(false);
-        gameOverMenu.SetActive(true);
+		StartCoroutine(GameOverRoutine());
     }
+
+	IEnumerator GameOverRoutine()
+	{
+		yield return new WaitForSeconds(2f);
+		mainGameUI.SetActive(false);
+        gameOverMenu.SetActive(true);
+	}
 
 	public void AddScore()
 	{
