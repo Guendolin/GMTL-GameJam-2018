@@ -3206,46 +3206,6 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-<<<<<<< HEAD
-  m_Text: New Highscore!
---- !u!222 &222006340921739066
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1200212807692158}
-  m_CullTransparentMesh: 0
---- !u!222 &222078270589768186
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1927423443522160}
-  m_CullTransparentMesh: 0
---- !u!222 &222094203998499632
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1367403227391002}
-  m_CullTransparentMesh: 0
---- !u!222 &222135130137073784
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1029457950217984}
-  m_CullTransparentMesh: 0
---- !u!222 &222228379719368388
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1314805752247874}
-  m_CullTransparentMesh: 0
---- !u!222 &222243173801988298
-CanvasRenderer:
-=======
   m_Text: "Made for \nGTMK JAM 2018\n\nBy\nSimon Engqvist\n&\nJohannes Fornaeus\n\nMusic
     & Sound Effects\nLine 1\nLine 1\nLine 1\nLine 1\nLine 1\nLine 1\nLine 1\nLine
     1Line 1Line 1"
