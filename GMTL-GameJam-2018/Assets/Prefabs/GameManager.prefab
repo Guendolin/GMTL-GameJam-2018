@@ -3206,6 +3206,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< HEAD
   m_Text: New Highscore!
 --- !u!222 &222006340921739066
 CanvasRenderer:
@@ -3244,6 +3245,13 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!222 &222243173801988298
 CanvasRenderer:
+=======
+  m_Text: "Made for \nGTMK JAM 2018\n\nBy\nSimon Engqvist\n&\nJohannes Fornaeus\n\nMusic
+    & Sound Effects\nLine 1\nLine 1\nLine 1\nLine 1\nLine 1\nLine 1\nLine 1\nLine
+    1Line 1Line 1"
+--- !u!114 &114887498315508688
+MonoBehaviour:
+>>>>>>> origin/master
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
