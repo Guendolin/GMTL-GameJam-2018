@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class AnimatorFunctions : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public GameObject woosh;
+	public GameObject hit;
+
+	public GameObject dustClouds;
+
+	public Transform dustCloudSpawnPos;
 
 	public void Shake()
 	{
 		CameraShakerController.CameraShake();
+		Instantiate(hit, transform.position, Quaternion.identity);
+	}
+
+	public void PlayWoosh()
+	{
+		Instantiate(woosh, transform.position, Quaternion.identity);
+	}
+
+	public void SpawnDustCloud()
+	{
+		Instantiate(dustClouds, dustCloudSpawnPos.position, Quaternion.identity);
 	}
 }

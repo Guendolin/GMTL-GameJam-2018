@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
 
     private bool isDead;
 
+    public GameObject playerHitFX;
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -42,8 +44,10 @@ public class PlayerHealth : MonoBehaviour
             health--;
 
             playerAnimator.SetTrigger("Hit");
+            Instantiate(playerHitFX, transform.position, Quaternion.identity);
             if (health <= 0)
             {
+                
                 GameManager.instance.Died();
                 PlayerDied();
             }

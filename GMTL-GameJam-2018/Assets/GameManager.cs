@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
 	public Animator fadeAnimator;
 
+	private MusicManager musicManager;
+
     public Transform Player
     {
         get { return playerPrefab.transform; }
@@ -61,7 +63,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-		
+		musicManager = GetComponent<MusicManager>();
+		//musicManager.ChangeToMain();
     }
 
 	void UpdateHighscore()
@@ -91,6 +94,10 @@ public class GameManager : MonoBehaviour
 	IEnumerator ChangeSceneRoutine(string sceneName)
 	{
 		fadeAnimator.SetTrigger("FadeOut");
+		if(sceneName == "MainMenu")
+		{
+			musicManager.ChangeToMain();
+		}
 		yield return new WaitForSeconds(0.5f);
 		SceneManager.LoadScene(sceneName);
 		fadeAnimator.SetTrigger("FadeIn");
@@ -109,6 +116,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         ChangeScene("MainGame");
+		musicManager.ChangeToGame();
 		StartCoroutine(StartGameRoutine());
     }
 
@@ -124,6 +132,7 @@ public class GameManager : MonoBehaviour
     public void Died()
     {
         gameState = GameState.GameOver;
+		musicManager.ChangeToGameOver();
 		StartCoroutine(GameOverRoutine());
     }
 

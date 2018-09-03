@@ -138,6 +138,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4484987348741804}
   - component: {fileID: 114606111366914910}
+  - component: {fileID: 82103555789752756}
+  - component: {fileID: 114731519622633990}
   m_Layer: 12
   m_Name: DemonDestroyFX 1
   m_TagString: Enemy
@@ -287,6 +289,101 @@ Transform:
   m_Father: {fileID: 4492321631411886}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -180, y: 89.99999, z: -90}
+--- !u!82 &82103555789752756
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585120927577938}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114123943911149448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,6 +412,27 @@ MonoBehaviour:
   timeToDestroy: 3
   destroyWithParticle: 0
   particle: {fileID: 0}
+--- !u!114 &114731519622633990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585120927577938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4eb78dafbd762548a13d19b974645b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+  randomClips:
+  - {fileID: 8300000, guid: a82de2cee0d19e0448715fff35e5253d, type: 3}
+  - {fileID: 8300000, guid: 612ca4dd675d1a24ca5baba40428f1d8, type: 3}
+  - {fileID: 8300000, guid: 1353ab5fa1b194f4f9fc79f6ec34f648, type: 3}
+  - {fileID: 8300000, guid: dc4d0fa222fb52e49b3c03b17b5f87e9, type: 3}
+  randomStartTime: 0
+  minPitch: 1.7
+  maxPitch: 1.9
+  useRandomList: 1
 --- !u!198 &198069706360014440
 ParticleSystem:
   m_ObjectHideFlags: 1

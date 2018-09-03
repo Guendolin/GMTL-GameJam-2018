@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerBat : PlayerSubComponent {
+public class PlayerBat : PlayerSubComponent
+{
 
-    private enum BatPosition { None, Left = -1, Right = 1}
+    private enum BatPosition { None, Left = -1, Right = 1 }
 
     [Header("Refs")]
     public Transform batPivot;
@@ -34,6 +35,10 @@ public class PlayerBat : PlayerSubComponent {
     private const float ANGLE_LEFT = 80;
     private const float ANGLE_RIGHT = -260;
 
+    public PlayerController playerController;
+
+   
+
     public override void Init(PlayerController playerController)
     {
         base.Init(playerController);
@@ -50,8 +55,8 @@ public class PlayerBat : PlayerSubComponent {
         batHitParticles.transform.parent = null;
     }
 
-	// Update is called once per frame
-	public void Tick (Vector2? aim = null)
+    // Update is called once per frame
+    public void Tick(Vector2? aim = null)
     {
         if (aim.HasValue)
         {
@@ -59,7 +64,7 @@ public class PlayerBat : PlayerSubComponent {
             Quaternion batRotation = Quaternion.Euler(0, 0, angle);
             batPivot.localRotation = batRotation;
         }
-	}
+    }
 
     public void FixedTick()
     {
@@ -74,7 +79,7 @@ public class PlayerBat : PlayerSubComponent {
             SetBatGrahpicsRotation(_currentBatAngle);
 
             Vector2 boxPos = batGraphics.TransformPoint(hitBoxOffset);
-            
+
             int numbHits = Physics2D.OverlapBox(boxPos, hitBoxSize, _currentBatAngle, _contactFilter, _hitResults);
             bool hitSomething = false;
             for (int i = 0; i < numbHits; i++)
@@ -85,8 +90,10 @@ public class PlayerBat : PlayerSubComponent {
                     hit.attachedRigidbody.velocity = batPivot.right * 5f;
                     _hitObjects.Add(hit);
                     hitSomething = true;
+                    
+                    playerController.HitSound();
 
-                    batHitParticles.transform.position = hit.attachedRigidbody.transform.position - Vector3.forward *5f;
+                    batHitParticles.transform.position = hit.attachedRigidbody.transform.position - Vector3.forward * 5f;
                     batHitParticles.Play();
                 }
             }
@@ -103,7 +110,7 @@ public class PlayerBat : PlayerSubComponent {
                 _hitObjects.Clear();
 
 
-                if(_currentBatPos == BatPosition.Right)
+                if (_currentBatPos == BatPosition.Right)
                 {
                     _playerController.playerAnimation.BatWobbleLeft();
                 }
@@ -124,7 +131,7 @@ public class PlayerBat : PlayerSubComponent {
 
     public void SwingBat()
     {
-        if(_swingTime < 0)
+        if (_swingTime < 0)
         {
             _swingTime = 0;
             _isSwining = true;

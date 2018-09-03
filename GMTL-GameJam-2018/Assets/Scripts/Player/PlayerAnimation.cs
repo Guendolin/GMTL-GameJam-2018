@@ -12,6 +12,8 @@ public class PlayerAnimation : PlayerSubComponent
 
     private int _batSwingRightTrigger;
     private int _batSwingLeftTrigger;
+    
+    public AudioSource runningSound;
 
     public override void Init(PlayerController playerController)
     {
@@ -28,6 +30,14 @@ public class PlayerAnimation : PlayerSubComponent
     public void SetPlayerRun(bool run)
     {
         playerAnimator.SetBool(_playerRunBool, run);
+        if(run == true)
+        {
+            runningSound.volume = 1f;
+        }
+        else
+        {
+            runningSound.volume = 0f;
+        }
     }
 
     public void BatWobbleLeft()

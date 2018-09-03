@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     private const float RADIUS = 0.5f;
     private const float MOVEMENT_SPEED = 2f;
 
+
+    [HeaderAttribute("Sound")]
+    public GameObject batSoundHit;
+    public GameObject batSoundSwoosh;
     // Use this for initialization
     void Start()
     {
@@ -49,6 +53,7 @@ public class PlayerController : MonoBehaviour
             if (playerInput.GetSwing())
             {
                 playerBat.SwingBat();
+                Instantiate(batSoundSwoosh, transform.position, Quaternion.identity);
             }
             playerBat.Tick(aim);
         }
@@ -66,6 +71,11 @@ public class PlayerController : MonoBehaviour
             //playerAnimation.SetPlayerRun(false);
             riggidBody.velocity = Vector2.zero;
         }
+    }
+
+    public void HitSound()
+    {
+        Instantiate(batSoundHit, transform.position, Quaternion.identity);
     }
 
 }
